@@ -15,7 +15,6 @@ module.exports.getFoods = async (req,res) => {
         .limit(limit)
         .skip(limit * page)
 
-        console.log(data)
         if(!data )
             throw new Error('Error in fetching data')
 
@@ -56,28 +55,25 @@ module.exports.createFood = async (req,res) => {
         price:req.body.price
     })
 
-    console.log(validation)
+    
     if(validation.error) 
         return res.status(400).send(validation.error.details[0].message)
 
-    res.send("O")
+    try {
+        const foodObj = {...req.body, creator: req.user._id  }
+        // return res.json(foodObj)
+        const food = new Food(foodObj)
+        
+        await food.save()
 
-    // try {
-    //     const foodObj = {...req.body, creator: req.user._id  }
-    //     // return res.json(foodObj)
-    //     const food = new Food(foodObj)
-    //     console.log(foodObj)
-    //     await food.save()
-    //     // res.status(201).send({ user, token })
-    //     res.status(201).json(foodObj)
-    // } catch (err) {
-    //     res.status(400).send(err.message)
-    // }
+        res.status(201).json(foodObj)
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
 
 }
 module.exports.deleteFood = async (req,res) => {
-    // validate incoming data
-    // console.log(req.body)
+    
     if(!req.params.foodID)
         return res.status(400).send('No Food ID provided')
 

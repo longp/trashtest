@@ -85,7 +85,7 @@ module.exports.deleteFood = async (req,res) => {
         
         res.status(204).json({
             msg:'Deleted foodID:' + req.params.foodID, 
-            data:deletedDrink
+            data:deletedFood
         })
         
 

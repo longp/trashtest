@@ -21,7 +21,6 @@ module.exports.createDrink = async (req,res) => {
         volume:req.body.volume,
         price:req.body.price
     })
-    console.log(validation)
     if(validation.error) 
         return res.status(400).send(validation.error.details[0].message)
 

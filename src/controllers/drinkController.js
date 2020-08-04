@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require('../models/User');
 const Drink = require('../models/Drink');
-// const { drinkValidate } = require("../utils/validate.js");
+const { drinkValidate } = require("../utils/validate.js");
 
 module.exports.getDrinks = async (req,res) => {
    

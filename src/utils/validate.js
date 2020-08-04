@@ -15,7 +15,30 @@ const userValidate = (data) => {
 
 
 const foodValidate = (data) => {
+    
+    const joiSchema = Joi.object({
+        name:Joi.string().min(6).required(),
+        description:Joi.string().min(6),
+        weight:Joi.object({
+            value:Joi.number().required(),
+            type:Joi.string().required().valid('lbs','kg','oz', 'g'),
 
+        }),
+        price:Joi.object({
+            value:Joi.number().required(),
+            quantity:Joi.number().required(),
+            currency_code:Joi.string().required().valid('usd','eur','cad'),
+
+        })
+    })
+
+    return joiSchema.validate({
+        name:data.name,
+        description:data.description,
+        weight:data.weight,
+        price:data.price,
+
+    })
 }
 
 
@@ -42,7 +65,6 @@ const drinkValidate = (data) => {
         description:data.description,
         volume:data.volume,
         price:data.price,
-
     })
 }
 

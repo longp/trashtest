@@ -3,8 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
-const PORT = process.env.PORT || 3000
+
 require('dotenv').config();
+const PORT = process.env.PORT || 3000
 
 //db connect
 mongoose.connect(
@@ -21,13 +22,16 @@ app.use(morgan('tiny'));
 //routes
 const authRoute = require('./routes/auth');
 const drinksRoute = require('./routes/drinks');
+const foodsRoute = require('./routes/foods');
+
 
 app.use('/api/auth',authRoute);
 app.use('/api/drinks',drinksRoute);
+app.use('/api/foods',foodsRoute);
 
 
 app.use("*",(req,res) => {
-    res.send("hello");
+    res.send("hello world");
 });
 app.listen(PORT, () => {
     console.log('Server on ', PORT)

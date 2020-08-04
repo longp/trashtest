@@ -40,7 +40,7 @@ const drinkValidate = (data) => {
     return joiSchema.validate({
         name:data.name,
         description:data.description,
-        weight:data.weight,
+        volume:data.volume,
         price:data.price,
 
     })

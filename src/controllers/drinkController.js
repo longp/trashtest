@@ -3,6 +3,16 @@ const User = require('../models/User');
 const Drink = require('../models/Drink');
 // const { drinkValidate } = require("../utils/validate.js");
 
+module.exports.getDrinks = async (req,res) => {
+ 
+  
+}
+
+module.exports.getDrink = async (req,res) => {
+   
+  
+}
+
 module.exports.createDrink = async (req,res) => {
     // validate incoming data
     // const validation = userValidate({
@@ -24,4 +34,7 @@ module.exports.createDrink = async (req,res) => {
         res.status(400).send(error)
     }
 
+}
+module.exports.deleteDrink = async (req,res) => {
+    
 }

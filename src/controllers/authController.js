@@ -4,6 +4,35 @@ const { userValidate } = require("../utils/validate.js");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+module.exports.login = async (req,res) => {
+    // validate incoming data
+    const validation = userValidate({
+        email:req.body.email,
+        password:req.body.password,
+    })
+
+    if(validation.error) 
+        return res.status(400).send(validation.error.details[0].message)
+
+    try {
+        const { email, password } = req.body
+        const user = await User.findByCredentials(email, password)
+        if (!user) {
+            return res.status(401).send({error: 'Login failed! Check authentication credentials'})
+        }
+        const token = await user.generateAuthToken()
+        res.json({
+            email:user.email,
+            id:user._id,
+            dateAdded:user.dateAdded,
+            authToken:token
+        })
+        
+    } catch (error) {
+        res.status(400).send({ error: error.message })
+    }
+}
+
 module.exports.register = async (req,res) => {
     // validate incoming data
     const validation = userValidate({

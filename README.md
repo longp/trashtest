@@ -56,12 +56,12 @@ Creating an entity like food or drink will be like this
 POST /api/{entities}/
 ![first test](https://github.com/longp/trashtest/blob/master/readme_img/2.png?raw=true)
 
-```
 getting entites
 
 GET /api/{entities}/{entityID} -> returns an object
-GET /api/{entities}/search?{params} -> returns a list of objects. acceptable params so far are limit and page example( /api/drinks/search?limit=10&page=0 )
+GET /api/{entities}/search?{params} -> returns a list of objects. 
+acceptable params so far are limit and page example( /api/drinks/search?limit=10&page=0 )
 
 DELETE /api/{entities}/{entityID} -> deletes that specific entity
 
-```
+

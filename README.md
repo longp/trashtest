@@ -1,5 +1,9 @@
 
 # Getting started
+- Make sure you have NodeJS installed (v10 or higher)
+```
+https://nodejs.org/en/download/
+```
 - Clone the repository
 ```
 git clone https://github.com/longp/trashtest.git <project_name>

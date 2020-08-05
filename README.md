@@ -38,3 +38,10 @@ mongod --dbpath ~/data/db
 ```
 npm start
 ```
+
+
+
+- using the Api 
+```
+![first test](./readme_img/1.png)
+```

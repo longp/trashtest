@@ -43,5 +43,5 @@ npm start
 
 - using the Api 
 ```
-![first test](./readme_img/1.png)
+![first test](https://github.com/longp/trashtest/blob/master/readme_img/1.png)
 ```

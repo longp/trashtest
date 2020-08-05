@@ -28,11 +28,9 @@ mongod
 # on macOS 10.15 or above the db directory is under home directory
 mongod --dbpath ~/data/db
 ```
-Make sure to look at .env-example and create your .env files with ur env variables
-```
+-Make sure to look at .env-example and create your .env files with ur env variables
 
-```
-- Build and run the project
+-Build and run the project
 ```
 npm start
 ```

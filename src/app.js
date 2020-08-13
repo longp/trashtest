@@ -23,11 +23,13 @@ app.use(morgan('tiny'));
 const authRoute = require('./routes/auth');
 const drinksRoute = require('./routes/drinks');
 const foodsRoute = require('./routes/foods');
+const productsRoute = require('./routes/products');
 
 
 app.use('/api/auth',authRoute);
 app.use('/api/drinks',drinksRoute);
 app.use('/api/foods',foodsRoute);
+app.use('/api/products',productsRoute);
 
 
 app.use("*",(req,res) => {
